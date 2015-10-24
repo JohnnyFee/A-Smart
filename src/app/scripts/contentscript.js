@@ -12,7 +12,7 @@
   'use strict';
 
   function prepareDetail(){
-      console.log('==============');
+      console.log('===============');
   }
 
   // Listen for the content script to send a message to the background page.
