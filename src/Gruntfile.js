@@ -1,4 +1,4 @@
-// Generated on 2015-04-21 using generator-chrome-extension 0.3.1
+// Generated on 2015-10-24 using generator-chrome-extension 0.4.1
 'use strict';
 
 // # Globbing
@@ -9,16 +9,19 @@
 
 module.exports = function (grunt) {
 
-  // Load grunt tasks automatically
-  require('load-grunt-tasks')(grunt);
-
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  // Automatically load required Grunt tasks
+  require('jit-grunt')(grunt, {
+    useminPrepare: 'grunt-usemin'
+  });
 
   // Configurable paths
   var config = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    srcScript: '<%= config.app %>/scripts.babel'
   };
 
   grunt.initConfig({
@@ -33,8 +36,8 @@ module.exports = function (grunt) {
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['jshint'],
+        files: ['<%= config.srcScript %>/{,*/}*.js'],
+        tasks: ['jshint', 'babel'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -59,6 +62,22 @@ module.exports = function (grunt) {
           '<%= config.app %>/manifest.json',
           '<%= config.app %>/_locales/{,*/}*.json'
         ]
+      }
+    },
+
+    // Compiles ES6 with Babel
+    babel: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.srcScript %>',
+          src: '{,*/}*.js',
+          dest: '<%= config.app %>/scripts',
+          ext: '.js'
+        }]
       }
     },
 
@@ -112,8 +131,7 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= config.app %>/scripts/{,*/}*.js',
-        '!<%= config.app %>/scripts/vendor/*',
+        '<%= config.srcScript %>/{,*/}*.js',
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
@@ -277,19 +295,19 @@ module.exports = function (grunt) {
       }
     },
 
-    // Compres dist files to package
+    // Compress dist files to package
     compress: {
       dist: {
         options: {
           archive: function() {
             var manifest = grunt.file.readJSON('app/manifest.json');
-            return 'package/CopyAsMarkdown-' + manifest.version + '.zip';
+            return 'package/A-Smart-' + manifest.version + '.zip';
           }
         },
         files: [{
           expand: true,
           cwd: 'dist/',
-          src: ['**'],
+          src: ['**/*'],
           dest: ''
         }]
       }
@@ -298,7 +316,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('debug', function () {
     grunt.task.run([
-      //'jshint',
+      'jshint',
+      'babel',
       'concurrent:chrome',
       'connect:chrome',
       'watch'
@@ -312,6 +331,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'babel',
     'chromeManifest:dist',
     'useminPrepare',
     'concurrent:dist',
