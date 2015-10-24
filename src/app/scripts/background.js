@@ -1,76 +1,70 @@
+'use strict';
+
 (function () {
-  'use strict';
+    'use strict';
 
-  /**
-   * 将文本拷贝到剪切板。
-   *
-   * @param text 将要拷贝的文本。
-   */
-  var copyToClipboard = function (text) {
-    var copyDiv = document.createElement('textarea');
-    copyDiv.id = 'copydiv';
+    /**
+     * Copy the text to clipboard.
+     *
+     * @param text copying text.
+     */
+    var copyToClipboard = function copyToClipboard(text) {
+        var copyDiv = document.createElement('textarea');
+        copyDiv.id = 'copydiv';
 
-    document.body.appendChild(copyDiv);
-    copyDiv.textContent = text;
-    copyDiv.focus();
-    document.execCommand('SelectAll');
-    document.execCommand('copy');
-    document.body.removeChild(copyDiv);
-  };
+        document.body.appendChild(copyDiv);
+        copyDiv.textContent = text;
+        copyDiv.focus();
+        document.execCommand('SelectAll');
+        document.execCommand('copy');
+        document.body.removeChild(copyDiv);
+    };
 
-  /**
-   * 向前台发送指令。
-   */
-  var sendADCommand = function () {
-    chrome.tabs.query({
-      active: true,
-      currentWindow: true
-    }, function (tabs) {
-      // notify content page to convert html to markdown
-      chrome.tabs.sendMessage(tabs[0].id, {
-        action: 'A-D'
-      }, function (response) {
-        // 发送成功。
-        console.log(response);
-      });
+
+    /**
+     * Bing Browsr Action Click Event.
+     */
+    chrome.browserAction.onClicked.addListener(function (tab) {
+        // Send A-D command to content page.
+        sendCommand('A-D');
     });
-  };
 
-  /**
-   * 绑定浏览器扩展图标的点击事件。
-   */
-  chrome.browserAction.onClicked.addListener(function (tab) {
-    // No tabs or host permissions needed!
-    console.log('Turning ' + tab.url + ' red!');
+    /**
+     * Interactive with content page.
+     */
+    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
-    requestHtml2Mardown();
-  });
+        // Get the command to Cope to Clipboard.
+        if (request.action === 'copytoclipboard') {
+            copyToClipboard(request.content);
+            // Send response
+            sendResponse({
+                success: true
+            });
+        }
+    });
 
-  /**
-   * 和前台内容的消息交互。
-   */
-  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    // Receive Command.
+    chrome.commands.onCommand.addListener(function (command) {
+        /**
+         * Send Comand to Content Page.
+         */
+        var sendCommand = function (action) {
 
-    // 得到前台拷贝指令。
-    if (request.action === 'copytoclipboard') {
-      copyToClipboard(request.content);
-      // 发送结果
-      sendResponse({
-        success: true
-      });
-    }
-  });
+        };
 
-  // 收到命令。
-  chrome.commands.onCommand.addListener(function (command) {
-    console.log('Received Command:' + command);
-    // 收到的命令为 A-D 时。
-    if (command === 'A-D') {
-
-      // 向前台放松指令。
-      sendADCommand();
-    }
-  });
-
-
-}());
+        // Send A-D action to content page.
+        chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {
+                action: command
+            }, function (response) {
+                // Send Success
+                console.log(response);
+            });
+        });
+    });
+})();
+//# sourceMappingURL=background.js.map

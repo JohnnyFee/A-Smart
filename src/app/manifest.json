@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "__MSG_appDescription__",
@@ -15,13 +15,22 @@
     ]
   },
   "commands": {
+    "A-T": {
+      "suggested_key": {
+        "default": "Alt+A",
+        "windows": "Alt+A",
+        "mac": "Alt+A"
+      },
+      "description": "Convert Product Name to Title Case."
+    },
+
     "A-D": {
       "suggested_key": {
-        "default": "Alt+X",
-        "windows": "Alt+X",
-        "mac": "Alt+X"
+        "default": "Alt+S",
+        "windows": "Alt+S",
+        "mac": "Alt+S"
       },
-      "description": "n."
+      "description": "Get Alibaba Product Detail."
     }
   },
   "browser_action": {
@@ -41,6 +50,8 @@
         "styles/main.css"
       ],
       "js": [
+        "bower_components/jquery/dist/jquery.js",
+        "scripts/template.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_idle",

@@ -21,7 +21,7 @@ module.exports = function (grunt) {
   var config = {
     app: 'app',
     dist: 'dist',
-    srcScript: '<%= config.app %>/scripts.babel'
+    srcScript: '<%= config.app %>/scripts'
   };
 
   grunt.initConfig({
@@ -316,7 +316,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('debug', function () {
     grunt.task.run([
-      'jshint',
+      // 'jshint',
       'babel',
       'concurrent:chrome',
       'connect:chrome',
@@ -344,7 +344,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
+    // 'jshint',
     'test',
     'build'
   ]);
