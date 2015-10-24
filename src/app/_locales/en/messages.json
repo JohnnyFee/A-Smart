@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Copy As Markdown",
-    "description": "The name of the application"
+    "message": "A-Smart Detail",
+    "description": "A-Smart Detail"
   },
   "appDescription": {
-    "message": "Used to copy the element in current page as markdown format.",
-    "description": "The description of the application"
+    "message": "Used to compelte product detail in Alibaba smartly.",
+    "description": ""
   }
 }

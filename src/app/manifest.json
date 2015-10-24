@@ -15,13 +15,13 @@
     ]
   },
   "commands": {
-    "html2markdown": {
+    "A-D": {
       "suggested_key": {
-        "default": "Alt+C",
-        "windows": "Alt+C",
-        "mac": "Alt+C"
+        "default": "Alt+X",
+        "windows": "Alt+X",
+        "mac": "Alt+X"
       },
-      "description": "Send 'html2markdown' command which is the same with clicking the browser_action icon."
+      "description": ""
     }
   },
   "browser_action": {
@@ -41,9 +41,7 @@
         "styles/main.css"
       ],
       "js": [
-        "scripts/vendor/reMarked.js",
         "scripts/contentscript.js",
-        "bower_components/rangy/rangy-core.js"
       ],
       "run_at": "document_idle",
       "all_frames": false
