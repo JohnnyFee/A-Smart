@@ -20,7 +20,6 @@
         document.body.removeChild(copyDiv);
     };
 
-
     /**
      * Bing Browsr Action Click Event.
      */
@@ -46,13 +45,6 @@
 
     // Receive Command.
     chrome.commands.onCommand.addListener(function (command) {
-        /**
-         * Send Comand to Content Page.
-         */
-        var sendCommand = function (action) {
-
-        };
-
         // Send A-D action to content page.
         chrome.tabs.query({
             active: true,
@@ -67,4 +59,5 @@
         });
     });
 })();
+//# sourceMappingURL=background.js.map
 //# sourceMappingURL=background.js.map

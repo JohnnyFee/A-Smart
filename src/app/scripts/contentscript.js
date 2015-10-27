@@ -23,7 +23,7 @@
     }
 
     function replaceAll(string, find, replace) {
-        return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+        return string.replace(new RegExp(find, 'g'), replace);
     }
 
     function getProductDetail() {
@@ -54,6 +54,7 @@
 
         // 颜色
         var color = $('[value="Color"]').next().val();
+        color = replaceAll(color, ' or Customized', '');
         content = replaceAll(content, '#color#', color);
 
         // Size
@@ -68,13 +69,21 @@
     }
 
     function productName2TitleCase() {
+        // 产品名称 Title Case
         var productName = $('#productName').val();
-        productName = toTitleCase(productName)
+        productName = toTitleCase(productName);
         $('#productName').val(productName);
-    }
 
-    function sendToBackgrond(content) {
+        var productKeyword = $('#productKeyword').val();
+        var productKeywordTitleCase = toTitleCase(productKeyword);
 
+        $('[value="Product Name"]').next().val(productName);
+
+        $('[value="Style"]').next().val(productKeywordTitleCase);
+        $('[value="Type"]').next().val(productKeywordTitleCase);
+
+        // 修改包装
+        $('#packagingDesc').val('1 ' + productKeyword + ' in OPP bag; 20 pieces in one master carton.');
     }
 
     // 收取后台页面的消息。
@@ -84,23 +93,37 @@
             // 准备 Product 内容
             var content = getProductDetail();
 
+            var $productContent = $('textarea[wrap="soft"]');
+            $productContent.val(content);
+
             // 让后台将内容拷贝到剪切板。
-            chrome.runtime.sendMessage({
-                action: 'copytoclipboard',
-                content: content
-            }, function (response) {
-                if (response.success) {
-                    sendResponse({
-                        sucess: true
-                    });
-                }
-            });
+            //chrome.runtime.sendMessage({
+            //    action: 'copytoclipboard',
+            //    content: content
+            //}, function (response) {
+            //    if (response.success) {
+            //        sendResponse({
+            //            sucess: true
+            //        });
+            //    }
+            //});
         } else if (request.action === 'A-T') {
             // 准备 Product 内容
             productName2TitleCase();
-        }
+        } else if (request.action === 'A-I') {
+            // 修改产品详情中图片的 ALT 属性。
 
+            var pName = $('#productName').val();
+
+            var $productContent = $('textarea[wrap="soft"]');
+            var productContent = $productContent.val();
+
+            var alt = 'alt="' + pName + '"';
+            var modifiedContent = replaceAll(productContent, 'alt=".*?"', alt);
+            $productContent.val(modifiedContent);
+        }
     });
 })();
+//# sourceMappingURL=contentscript.js.map
 //# sourceMappingURL=contentscript.js.map
 //# sourceMappingURL=contentscript.js.map

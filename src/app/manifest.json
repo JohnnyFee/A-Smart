@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "__MSG_appDescription__",
@@ -31,6 +31,14 @@
         "mac": "Alt+S"
       },
       "description": "Get Alibaba Product Detail."
+    },
+    "A-I": {
+      "suggested_key": {
+        "default": "Alt+Q",
+        "windows": "Alt+Q",
+        "mac": "Alt+Q"
+      },
+      "description": "Modify Alibaba Image Alt."
     }
   },
   "browser_action": {
