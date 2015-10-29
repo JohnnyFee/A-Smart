@@ -58,39 +58,34 @@
         content = replaceAll(content, '#color#', color);
 
         // Size
-        var $sizeAttr = $('[value="Size(inch)"]');
+        var $sizeAttr = $('[value="Size (inch)"]');
         var size = '';
-        if ($sizeAttr) {
+        if ($sizeAttr.length !== 0) {
             size = $sizeAttr.next().val();
         }
 
-        var $largeSize = $('[value="Large Size(inch)"]');
-        var $mediumSize = $('[value="Medium Size(inch)"]');
-        var $smallSize = $('[value="Medium Size(inch)"]');
+        var $largeSize = $('[value="Large Size (inch)"]');
+        var $mediumSize = $('[value="Medium Size (inch)"]');
+        var $smallSize = $('[value="Small Size (inch)"]');
 
-        if ($largeSize) {
+        if ($largeSize.length !== 0) {
             size = "Large Size: " + $largeSize.next().val();
         }
 
-        if ($mediumSize) {
+        if ($mediumSize.length !== 0) {
             size += "<br>Medium Size: " + $mediumSize.next().val();
         }
 
-        if ($smallSize) {
+        if ($smallSize.length !== 0) {
             size += "<br>Small Size: " + $smallSize.next().val();
         }
 
-        var largeSize = $('[value="Large Size(inch)"]').next().val();
-        var mediumSize = $('[value="Medium Size(inch)"]').next().val();
         content = replaceAll(content, '#size#', size);
 
         // Material
         var material = $('[value="Material"]').next().val();
         content = replaceAll(content, '#material#', material);
 
-        // Size
-        var size = $('[value="Size(inch)"]').next().val();
-        content = replaceAll(content, '#size#', size);
 
         return content;
     }
@@ -106,8 +101,22 @@
 
         $('[value="Product Name"]').next().val(productName);
 
-        $('[value="Style"]').next().val(productKeywordTitleCase);
-        $('[value="Type"]').next().val(productKeywordTitleCase);
+        var $style = $('[value="Style"]');
+        var $type = $('[value="Type"]');
+        var $usage = $('[value="Usage"]');
+
+        if ($style.length !== 0) {
+            $style.next().val(productKeywordTitleCase);
+        }
+
+        if ($type.length !== 0) {
+            $type.next().val(productKeywordTitleCase);
+        }
+
+        if ($usage.length !== 0) {
+            $usage.next().val(productKeywordTitleCase);
+        }
+
 
         // 修改包装
         $('#packagingDesc').val('1 ' + productKeyword + ' in OPP bag; 20 pieces in one master carton.');

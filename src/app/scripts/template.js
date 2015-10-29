@@ -32,7 +32,7 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '				</tr>' +
     '				<tr>' +
     '					<td><span style="font-weight: bold;">Packing</span></td>' +
-    '					<td>One piece packing cube in one opp bag, 20 pieces in one master carton.</td>' +
+    '					<td>One piece <strong>#productKeyword#</strong> in one opp bag, 20 pieces in one master carton.</td>' +
     '				</tr>' +
     '				<tr>' +
     '					<td rowspan="2"><span style="font-weight: bold;">Payment</span></td>' +
