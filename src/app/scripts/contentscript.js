@@ -58,12 +58,39 @@
         content = replaceAll(content, '#color#', color);
 
         // Size
-        var size = $('[value="Size(inch)"]').next().val();
+        var $sizeAttr = $('[value="Size(inch)"]');
+        var size = '';
+        if ($sizeAttr) {
+            size = $sizeAttr.next().val();
+        }
+
+        var $largeSize = $('[value="Large Size(inch)"]');
+        var $mediumSize = $('[value="Medium Size(inch)"]');
+        var $smallSize = $('[value="Medium Size(inch)"]');
+
+        if ($largeSize) {
+            size = "Large Size: " + $largeSize.next().val();
+        }
+
+        if ($mediumSize) {
+            size += "<br>Medium Size: " + $mediumSize.next().val();
+        }
+
+        if ($smallSize) {
+            size += "<br>Small Size: " + $smallSize.next().val();
+        }
+
+        var largeSize = $('[value="Large Size(inch)"]').next().val();
+        var mediumSize = $('[value="Medium Size(inch)"]').next().val();
         content = replaceAll(content, '#size#', size);
 
         // Material
         var material = $('[value="Material"]').next().val();
         content = replaceAll(content, '#material#', material);
+
+        // Size
+        var size = $('[value="Size(inch)"]').next().val();
+        content = replaceAll(content, '#size#', size);
 
         return content;
     }
