@@ -23,12 +23,12 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '					<td>#color#. More then 20 colors are available, your colors can be customized.</td>' +
     '				</tr>' +
     '				<tr>' +
-    '					<td><span style="font-weight: bold; color: #1996e6;">MOQ</span> of <strong>#productKeywordTitleCase#</strong></td>' +
-    '					<td>500pcs.</td>' +
-    '				</tr>' +
-    '				<tr>' +
     '					<td><span style="font-weight: bold;">Logo</span></td>' +
     '					<td>Silk screen printing, Sublimation, Heat transfer printing.</td>' +
+    '				</tr>' +
+    '				<tr>' +
+    '					<td><span style="font-weight: bold; color: #1996e6;">MOQ</span> of <strong>#productKeywordTitleCase#</strong></td>' +
+    '					<td>500pcs.</td>' +
     '				</tr>' +
     '				<tr>' +
     '					<td><span style="font-weight: bold;">Packing</span></td>' +
@@ -39,14 +39,14 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '					<td>Payment Type: T/T, L/C, Western Union, PayPal(For Samples only)</td>' +
     '				</tr>' +
     '				<tr>' +
-    '					<td>Payment Terms: 30% Deposit,70% Balance Paid before Shipment.</td>' +
+    '					<td>Payment Terms: 30% Deposit, 70% Balance Paid before Shipment.</td>' +
     '				</tr>' +
     '				<tr>' +
     '					<td rowspan="2"><span style="font-weight: bold;">Sample</span></td>' +
     '					<td>Sample Time: 5-7days</td>' +
     '				</tr>' +
     '				<tr>' +
-    '					<td>Sample Charge: <span style="font-weight: bold; color: #1996e6;">USD$60</span></td>' +
+    '					<td>Sample Charge: <span style="font-weight: bold; color: #1996e6;">USD$50</span></td>' +
     '				</tr>' +
     '				<tr>' +
     '					<td><span style="font-weight: bold;">Delivery Time</span></td>' +
@@ -77,6 +77,7 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '		<li><span style="font-weight: bold; color: #1996e6;">3rd Inspection.</span> We have the long-standing business relationship with the INTERTEK, AZO-free for certification of CE, ROHS, SGS, FDA.</li>' +
     '		<li><span style="font-weight: bold; color: #1996e6;">Friendly Support.</span> Any questions, any problems are welcomed, we are always here for you.</li>' +
     '	</ol></div>' +
+    '	<p>See more <strong>#productKeyword#</strong>#moreKeywords# on <a href="http://inesoi.en.alibaba.com/productgrouplist-802277003/Cosmetic_Bags.html">Cosmetic Bags</a>.</p>' +
     '</div>' +
     '<div style="padding-top: 8px;">' +
     '	<div style="padding: 8px 0; border-bottom: 1px solid #0066cc;"><span style="background-color: #0066cc; color: #fff; font-weight: bold; padding: 8px 10px; line-height: 12px;">Company Information</span></div>' +
@@ -84,5 +85,5 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '		<p><img src="http://kfdown.s.aliimg.com/kf/HTB18E0KKXXXXXXkXpXX760XFXXXE/225743741/HTB18E0KKXXXXXXkXpXX760XFXXXE.png" ori-width="750" ori-height="1150" /></p>' +
     '	</div>' +
     '</div>' +
-    '<p>See more <strong>#productKeyword#</strong>#moreKeywords# on <a href="http://inesoi.en.alibaba.com/productgrouplist-802297983/Packing_Cubes.html">Packing Cubes</a>.</p>';
+    '<p>See more <strong>#productKeyword#</strong>#moreKeywords# on <a href="http://inesoi.en.alibaba.com/productgrouplist-802277003/Cosmetic_Bags.html">Cosmetic Bags</a>.</p>';
 

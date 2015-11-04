@@ -58,15 +58,23 @@
         content = replaceAll(content, '#color#', color);
 
         // Size
-        var $sizeAttr = $('[value="Size (inch)"]');
+        var $sizeAttr = $('[value="Size(inch)"]');
         var size = '';
         if ($sizeAttr.length !== 0) {
             size = $sizeAttr.next().val();
         }
 
-        var $largeSize = $('[value="Large Size (inch)"]');
-        var $mediumSize = $('[value="Medium Size (inch)"]');
-        var $smallSize = $('[value="Small Size (inch)"]');
+        // Size
+        var $capacity = $('[value="Capacity"]');
+        var capacity = '';
+        if ($capacity.length !== 0) {
+            capacity = $capacity.next().val();
+        }
+        content = replaceAll(content, '#capacity#', capacity);
+
+        var $largeSize = $('[value="Large Size(inch)"]');
+        var $mediumSize = $('[value="Medium Size(inch)"]');
+        var $smallSize = $('[value="Small Size(inch)"]');
 
         if ($largeSize.length !== 0) {
             size = "Large Size: " + $largeSize.next().val();
@@ -84,8 +92,12 @@
 
         // Material
         var material = $('[value="Material"]').next().val();
-        content = replaceAll(content, '#material#', material);
+        //var material1 = $('[name="sysAttrValueIdAndValue10"] option:selected').text();
+        //if (material1 && material1 !== material) {
+        //    material += ', ' + material1;
+        //}
 
+        content = replaceAll(content, '#material#', material);
 
         return content;
     }
@@ -104,6 +116,7 @@
         var $style = $('[value="Style"]');
         var $type = $('[value="Type"]');
         var $usage = $('[value="Usage"]');
+        var $itemName = $('[value="Item Name"]');
 
         if ($style.length !== 0) {
             $style.next().val(productKeywordTitleCase);
@@ -115,6 +128,10 @@
 
         if ($usage.length !== 0) {
             $usage.next().val(productKeywordTitleCase);
+        }
+
+        if ($itemName.length !== 0) {
+            $itemName.next().val(productKeywordTitleCase);
         }
 
 
