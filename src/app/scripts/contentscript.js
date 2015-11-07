@@ -26,6 +26,13 @@
         return string.replace(new RegExp(find, 'g'), replace);
     }
 
+    if (!String.prototype.endsWith) {
+        String.prototype.endsWith = function (sub) {
+            return this.length >= sub.length && this.substring(this.length - sub.length) == sub;
+        };
+    }
+
+
     function getProductDetail() {
         var productName = $('#productName').val();
         var content = replaceAll(template, '#productName#', productName);
@@ -90,6 +97,21 @@
 
         content = replaceAll(content, '#size#', size);
 
+        // 内链
+        var fullCategory = $.trim($('#cate-path-text-copy').text());
+        var category = fullCategory.substring(fullCategory.lastIndexOf('>>') + 2);
+        var link = '';
+        switch (category) {
+            case 'Waist Bags':
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802402172/Waist_Bags.html">Waist Bags</a>';
+                break;
+            case 'Diaper Bags':
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802382860/Diaper_Bags.html">Diaper Bags</a>';
+                break;
+        }
+
+        content = replaceAll(link, '#categoryLink#', link);
+
         // Material
         var material = $('[value="Material"]').next().val();
         //var material1 = $('[name="sysAttrValueIdAndValue10"] option:selected').text();
@@ -102,7 +124,10 @@
         return content;
     }
 
-    function productName2TitleCase() {
+    /**
+     * 修改页面属性。
+     */
+    function modifyProperties() {
         // 产品名称 Title Case
         var productName = $('#productName').val();
         productName = toTitleCase(productName);
@@ -162,7 +187,7 @@
             //});
         } else if (request.action === 'A-T') {
             // 准备 Product 内容
-            productName2TitleCase();
+            modifyProperties();
         } else if (request.action === 'A-I') {
             // 修改产品详情中图片的 ALT 属性。
 
