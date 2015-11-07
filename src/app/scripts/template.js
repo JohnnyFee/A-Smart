@@ -1,6 +1,6 @@
 'use strict';
 
-var template = '<h2 style="text-align: center; color: #009966;">#productName#</h2>' +
+var template = '<h2 style="text-align: center; color: #663399;">#productName#</h2>' +
     '<div style="padding-top: 8px;">' +
     '	<div style="padding: 8px 0; border-bottom: 1px solid #663399;"><span style="background-color: #663399; color: #fff; font-weight: bold; padding: 8px 10px; line-height: 12px;">Specification of #productKeywordTitleCase#</span></div>' +
     '	<div style="padding: 15px 0;">' +
@@ -46,7 +46,7 @@ var template = '<h2 style="text-align: center; color: #009966;">#productName#</h
     '					<td>Sample Time: 5-7days</td>' +
     '				</tr>' +
     '				<tr>' +
-    '					<td>Sample Charge: <span style="font-weight: bold; color: #1996e6;">USD$50</span></td>' +
+    '					<td>Sample Charge: <span style="font-weight: bold; color: #1996e6;">USD$#sampleFee#</span></td>' +
     '				</tr>' +
     '				<tr>' +
     '					<td><span style="font-weight: bold;">Delivery Time</span></td>' +

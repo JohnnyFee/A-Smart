@@ -97,6 +97,9 @@
 
         content = replaceAll(content, '#size#', size);
 
+        // 样品费
+        var sampleFee = '0';
+
         // 内链
         var fullCategory = $.trim($('#cate-path-text-copy').text());
         var category = fullCategory.substring(fullCategory.lastIndexOf('>>') + 2);
@@ -104,13 +107,22 @@
         switch (category) {
             case 'Waist Bags':
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802402172/Waist_Bags.html">Waist Bags</a>';
+                var sampleFee = '50';
                 break;
             case 'Diaper Bags':
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802382860/Diaper_Bags.html">Diaper Bags</a>';
+                var sampleFee = '70';
+                break;
+            case 'Laptop Backpacks':
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802414215/Laptop_Backpacks.html">Laptop Backpacks</a>';
+                var sampleFee = '80';
                 break;
         }
 
         content = replaceAll(link, '#categoryLink#', link);
+        content = replaceAll(link, '#sampleFee#', sampleFee);
+
+
 
         // Material
         var material = $('[value="Material"]').next().val();
