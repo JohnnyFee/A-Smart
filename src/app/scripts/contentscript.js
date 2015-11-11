@@ -104,6 +104,9 @@
         var fullCategory = $.trim($('#cate-path-text-copy').text());
         var category = fullCategory.substring(fullCategory.lastIndexOf('>>') + 2);
         var link = '';
+        var type = $('[name="sysAttrValueIdAndValue351"] option:selected').text();
+        var occasion = $('[name="sysAttrValueIdAndValue970"] option:selected').text();
+
         switch (category) {
             case 'Waist Bags':
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802402172/Waist_Bags.html">Waist Bags</a>';
@@ -111,17 +114,52 @@
                 break;
             case 'Diaper Bags':
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802382860/Diaper_Bags.html">Diaper Bags</a>';
-                var sampleFee = '70';
+                sampleFee = '70';
                 break;
-            case 'Laptop Backpacks':
-                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802414215/Laptop_Backpacks.html">Laptop Backpacks</a>';
-                var sampleFee = '80';
+            case 'Messenger Bags':
+            {
+                if (productName.indexOf('Sling') > -1) {
+                    link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802355734/Sling_Bags.html">Sling Bags</a>';
+                    sampleFee = '60';
+                } else {
+                    link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802343028/Shoulder_Bags.html">Shoulder Bags</a>';
+                    sampleFee = '70';
+                }
+
                 break;
+            }
+            case 'Laptop Bags':
+            {
+                if (type === 'Laptop Backpack') {
+                    link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802414215/Laptop_Backpacks.html">Laptop Backpacks</a>';
+                    sampleFee = '80';
+                }
+                break;
+            }
+            case 'Backpacks':
+            {
+
+                if (occasion === 'Camping & Hiking') {
+                    link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802407312/Outdoor_Backpacks.html">Outdoor Backpacks</a>';
+                    sampleFee = '90';
+                } else {
+                    link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802301819/Daypacks.html">Daypacks</a>';
+                    sampleFee = '70';
+                }
+                break;
+            }
+            case 'School Bags':
+            {
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802361982/School_Backpacks.html">School Backpacks</a>';
+                sampleFee = '70';
+                break;
+            }
+
+
         }
 
-        content = replaceAll(link, '#categoryLink#', link);
-        content = replaceAll(link, '#sampleFee#', sampleFee);
-
+        content = replaceAll(content, '#categoryLink#', link);
+        content = replaceAll(content, '#sampleFee#', sampleFee);
 
 
         // Material
