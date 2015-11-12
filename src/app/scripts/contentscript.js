@@ -11,6 +11,7 @@
 
 (function () {
     'use strict';
+    var myWords = {'running belts': 2};
 
     function toTitleCase(str) {
         return str.replace(/\w\S*/g, function (txt) {
@@ -31,7 +32,6 @@
             return this.length >= sub.length && this.substring(this.length - sub.length) == sub;
         };
     }
-
 
     function getProductDetail() {
         var productName = $('#productName').val();
@@ -155,12 +155,10 @@
                 break;
             }
 
-
         }
 
         content = replaceAll(content, '#categoryLink#', link);
         content = replaceAll(content, '#sampleFee#', sampleFee);
-
 
         // Material
         var material = $('[value="Material"]').next().val();
@@ -209,9 +207,28 @@
             $itemName.next().val(productKeywordTitleCase);
         }
 
-
         // 修改包装
         $('#packagingDesc').val('1 ' + productKeyword + ' in OPP bag; 20 pieces in one master carton.');
+    }
+
+    function clickMyProducts() {
+        // 转到阿里首页
+        var location = window.location.href;
+
+        switch (location) {
+            case 'http://www.alibaba.com':
+            {
+                // 输入关键词
+                $('.ui-searchbar-keyword').val('running belt');
+
+                // 点击搜索
+                $('.ui-searchbar-submit')[1].click();
+            }
+        }
+
+
+
+        $('div.item-grid:contains("Yiwu Inesoi Bag Factory")').find('.item-col').find('a').click();
     }
 
     // 收取后台页面的消息。
@@ -249,9 +266,23 @@
             var alt = 'alt="' + pName + '"';
             var modifiedContent = replaceAll(productContent, 'alt=".*?"', alt);
             $productContent.val(modifiedContent);
+        } else if (request.action === 'A-Click') {
+            clickMyProducts();
         }
     });
 })();
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
+//# sourceMappingURL=contentscript.js.map
 //# sourceMappingURL=contentscript.js.map
 //# sourceMappingURL=contentscript.js.map
 //# sourceMappingURL=contentscript.js.map

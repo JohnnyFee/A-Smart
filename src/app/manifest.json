@@ -23,7 +23,14 @@
       },
       "description": "Convert Product Name to Title Case."
     },
-
+    "A-Click": {
+      "suggested_key": {
+        "default": "Alt+Shift+F",
+        "windows": "Alt+Shift+F",
+        "mac": "Alt+Shift+F"
+      },
+      "description": "Click my Products."
+    },
     "A-D": {
       "suggested_key": {
         "default": "Alt+S",
