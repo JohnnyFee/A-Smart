@@ -116,6 +116,16 @@
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802382860/Diaper_Bags.html">Diaper Bags</a>';
                 sampleFee = '70';
                 break;
+            case 'Cooler Bags':{
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802270605/Cooler_Lunch_Bags.html">Cooler & Lunch Bags</a>';
+                sampleFee = '50';
+                break;
+            }
+            case 'Cosmetic Bags & Cases':{
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802277003/Cosmetic_Bags.html">Cosmetic Bags & Cases</a>';
+                sampleFee = '50';
+                break;
+            }
             case 'Messenger Bags':
             {
                 if (productName.indexOf('Sling') > -1) {
