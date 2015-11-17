@@ -116,12 +116,14 @@
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802382860/Diaper_Bags.html">Diaper Bags</a>';
                 sampleFee = '70';
                 break;
-            case 'Cooler Bags':{
+            case 'Cooler Bags':
+            {
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802270605/Cooler_Lunch_Bags.html">Cooler & Lunch Bags</a>';
                 sampleFee = '50';
                 break;
             }
-            case 'Cosmetic Bags & Cases':{
+            case 'Cosmetic Bags & Cases':
+            {
                 link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802277003/Cosmetic_Bags.html">Cosmetic Bags & Cases</a>';
                 sampleFee = '50';
                 break;
@@ -144,6 +146,12 @@
                     link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802414215/Laptop_Backpacks.html">Laptop Backpacks</a>';
                     sampleFee = '80';
                 }
+                break;
+            }
+            case 'Strollers, Walkers & Carriers':
+            {
+                link = '<a href="http://inesoi.en.alibaba.com/productgrouplist-802396361/Baby_Carriers.html">Baby Carriers</a>';
+                sampleFee = '60';
                 break;
             }
             case 'Backpacks':
@@ -235,7 +243,6 @@
                 $('.ui-searchbar-submit')[1].click();
             }
         }
-
 
 
         $('div.item-grid:contains("Yiwu Inesoi Bag Factory")').find('.item-col').find('a').click();
