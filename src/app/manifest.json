@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "__MSG_appDescription__",
@@ -23,14 +23,6 @@
       },
       "description": "Convert Product Name to Title Case."
     },
-    "A-Click": {
-      "suggested_key": {
-        "default": "Alt+Shift+F",
-        "windows": "Alt+Shift+F",
-        "mac": "Alt+Shift+F"
-      },
-      "description": "Click my Products."
-    },
     "A-D": {
       "suggested_key": {
         "default": "Alt+S",
@@ -38,6 +30,14 @@
         "mac": "Alt+S"
       },
       "description": "Get Alibaba Product Detail."
+    },
+    "A-Convert": {
+      "suggested_key": {
+        "default": "Alt+X",
+        "windows": "Alt+X",
+        "mac": "Alt+X"
+      },
+      "description": "Convert from Alibaba to INESOI."
     },
     "A-I": {
       "suggested_key": {
@@ -67,6 +67,7 @@
       "js": [
         "bower_components/jquery/dist/jquery.js",
         "scripts/template.js",
+        "scripts/template-inesoi.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_idle",

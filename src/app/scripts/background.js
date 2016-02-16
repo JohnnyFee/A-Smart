@@ -59,20 +59,3 @@
         });
     });
 })();
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
-//# sourceMappingURL=background.js.map
